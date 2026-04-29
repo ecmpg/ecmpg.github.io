@@ -21,7 +21,7 @@ export default function About() {
             </div>
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/about-1.jpg"
+                src="/images/about-1.JPG"
                 alt="Manufacturing equipment research"
                 fill
                 className="object-cover"
@@ -29,7 +29,7 @@ export default function About() {
             </div>
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/about-4.jpg"
+                src="/images/about-4.JPG"
                 alt="CNC machine operation"
                 fill
                 className="object-cover"
@@ -37,7 +37,7 @@ export default function About() {
             </div>
             <div className="relative h-64 rounded-lg overflow-hidden">
               <Image
-                src="/images/about-2.jpg"
+                src="/images/about-2.JPG"
                 alt="Industrial robotics development"
                 fill
                 className="object-cover"

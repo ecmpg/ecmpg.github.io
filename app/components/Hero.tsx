@@ -10,7 +10,7 @@ export default function Hero() {
       <div 
         className="relative min-h-[600px]"
         style={{
-          backgroundImage: 'url(/images/hero.jpg)',
+          backgroundImage: 'url(/images/hero.JPG)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
