@@ -10,8 +10,8 @@ export default function About() {
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Left side - Images Grid */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="relative h-64 rounded-lg overflow-hidden">
+          <div className="grid grid-cols-2 gap-4 auto-rows-auto">
+            <div className="relative h-72 rounded-lg overflow-hidden">
               <Image
                 src="/images/about-3.jpg"
                 alt="Engineer working with precision machinery"
@@ -19,25 +19,25 @@ export default function About() {
                 className="object-cover"
               />
             </div>
-            <div className="relative h-64 rounded-lg overflow-hidden">
+            <div className="relative h-72 rounded-lg overflow-hidden mt-8">
               <Image
-                src="/images/about-1.JPG"
+                src="/images/about-4.png"
                 alt="Manufacturing equipment research"
                 fill
                 className="object-cover"
               />
             </div>
-            <div className="relative h-64 rounded-lg overflow-hidden">
+            <div className="relative h-56 rounded-lg overflow-hidden -mt-8">
               <Image
-                src="/images/about-4.JPG"
+                src="/images/about-2.jpg"
                 alt="CNC machine operation"
                 fill
                 className="object-cover"
               />
             </div>
-            <div className="relative h-64 rounded-lg overflow-hidden">
+            <div className="relative h-72 rounded-lg overflow-hidden">
               <Image
-                src="/images/about-2.JPG"
+                src="/images/about-1.jpg"
                 alt="Industrial robotics development"
                 fill
                 className="object-cover"
@@ -65,6 +65,22 @@ export default function About() {
             >
               Read More <ArrowRight className="w-5 h-5" />
             </Link>
+
+            {/* Statistics Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">90+</h3>
+                <p className="text-gray-700 text-sm">Research Outcomes</p>
+              </div>
+              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">50+</h3>
+                <p className="text-gray-700 text-sm">Research Publications</p>
+              </div>
+              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
+                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">15+</h3>
+                <p className="text-gray-700 text-sm">Industry Partners</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

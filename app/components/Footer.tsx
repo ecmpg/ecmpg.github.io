@@ -6,9 +6,15 @@ import SiteLogo from './SiteLogo';
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-primary text-gray-100 py-14">
+    <footer id="contact" className="bg-primary text-gray-100 py-14 relative mt-32 pt-40">
       <div className="container-custom">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="relative pb-5">
+          <div className="absolute -top-64 left-0 right-0 w-full max-w-5xl h-96 bg-white rounded-2xl shadow-2xl overflow-hidden z-10">              
+            <img src="/images/team.jpeg" alt="ECMPG Team" className="w-full h-full object-cover object-top" />
+          </div>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-8 mb-8 pt-40 relative z-20">
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <SiteLogo size={34} className="rounded-lg" />

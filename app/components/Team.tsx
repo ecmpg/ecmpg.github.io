@@ -28,37 +28,36 @@ export default function Team({ preview = false, eagerImages = false }: TeamProps
           {visibleTeam.map((person, index) => (
             <article
               key={person.id}
-              className={`glass-card rounded-2xl p-5 border border-gray-200 hover:shadow-lg transition-all float-up delay-${Math.min(index + 1, 3)}`}
+              className={`bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all float-up delay-${Math.min(index + 1, 3)}`}
             >
-              <div className="flex flex-col items-center text-center gap-4">
+              <div className="relative aspect-[4/3] w-full">
                 <Image
                   src={person.image}
                   alt={`${person.name} profile photo`}
-                  width={120}
-                  height={120}
-                  className="h-32 w-32 rounded-full border-4 border-primary/20 object-cover"
+                  fill
+                  className="object-cover"
                   loading={eagerImages ? 'eager' : 'lazy'}
                   priority={eagerImages && index < 3}
                 />
-                <div>
-                  <h3 className="text-lg font-display font-semibold text-dark">{person.name}</h3>
-                  <p className="text-sm text-gray-600 mt-1">{person.designation}</p>
-                  <div className="flex items-center justify-center gap-4 my-1"> 
-                    <a
-                      href={`mailto:${person.email}`}
-                      title="Send an email"
-                      className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-accent hover:underline"
-                    >
-                      <Mail aria-hidden="true" className="h-6 w-6" />
-                    </a>
-                    <a
-                      href="#"
-                      title="View profile"
-                      className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-accent hover:underline"
-                    >
-                      <User2 aria-hidden="true" className="h-6 w-6" />
-                    </a>
-                  </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-display font-semibold text-dark">{person.name}</h3>
+                <p className="text-sm text-gray-600 mt-1 mb-3">{person.designation}</p>
+                <div className="flex items-center gap-4"> 
+                  <a
+                    href={`mailto:${person.email}`}
+                    title="Send an email"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-accent hover:underline"
+                  >
+                    <Mail aria-hidden="true" className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="#"
+                    title="View profile"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-secondary hover:text-accent hover:underline"
+                  >
+                    <User2 aria-hidden="true" className="h-5 w-5" />
+                  </a>
                 </div>
               </div>
             </article>

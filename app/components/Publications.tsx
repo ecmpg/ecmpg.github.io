@@ -53,77 +53,11 @@ export default function Publications({ preview = false }: PublicationsProps) {
 
         {/* Carousel Container */}
         <div className="mt-10 relative">
-          {/* Carousel Slides - Show 4 cards with last one highlighted */}
-          <div className="relative overflow-hidden px-4">
-            <div className="flex items-end gap-4 transition-transform duration-700 ease-in-out">
-              {[...Array(4)].map((_, position) => {
-                const index = (currentIndex + position) % visiblePublications.length;
-                const pub = visiblePublications[index];
-                const isMain = position === 3; // 4th card is the main one
-
-                return (
-                  <div
-                    key={`${pub.id}-${position}`}
-                    className={`transition-all duration-700 ${
-                      isMain 
-                        ? 'flex-shrink-0 w-[40%] opacity-100 scale-100' 
-                        : 'flex-shrink-0 w-[18%] opacity-60 scale-90'
-                    }`}
-                  >
-                    <div className={`rounded-2xl bg-white border p-6 transition-all duration-700 ${
-                      isMain 
-                        ? 'border-secondary shadow-2xl min-h-[400px]' 
-                        : 'border-gray-200 shadow-md min-h-[320px]'
-                    }`}>
-                      <p className={`font-semibold uppercase tracking-[0.18em] text-secondary mb-2 ${
-                        isMain ? 'text-xs' : 'text-[10px]'
-                      }`}>
-                        {pub.type}
-                      </p>
-                      <h3 className={`font-display font-bold text-dark mb-3 ${
-                        isMain ? 'text-xl' : 'text-sm'
-                      }`}>
-                        {pub.title}
-                      </h3>
-                      <p className={`text-gray-700 leading-relaxed mb-3 ${
-                        isMain ? 'text-base' : 'text-xs line-clamp-3'
-                      }`}>
-                        {pub.summary}
-                      </p>
-                      <div className="space-y-2">
-                        <p className={`text-gray-600 italic ${
-                          isMain ? 'text-sm' : 'text-[11px]'
-                        }`}>
-                          {pub.venue}
-                        </p>
-                        {pub.authors && isMain && (
-                          <p className="text-sm text-gray-600">
-                            <span className="font-semibold">Authors:</span> {pub.authors}
-                          </p>
-                        )}
-                      </div>
-                      {pub.link && isMain ? (
-                        <a
-                          href={pub.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-block mt-4 px-4 py-2 text-sm font-medium text-primary hover:text-white border border-primary hover:bg-primary rounded-lg transition-all"
-                        >
-                          {pub.linkLabel || 'View Publication'}
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Navigation Controls and Dot Indicators at Bottom */}
-          <div className="flex items-center justify-center gap-8 mt-8">
+           {/* Navigation Controls and Dot Indicators at Bottom */}
+          <div className="flex items-center justify-start gap-8 mt-8 px-0">
             <button
               onClick={goToPrevious}
-              className="p-2 rounded-full border-2 border-gray-300 hover:border-secondary hover:bg-secondary hover:text-white transition-all"
+              className="p-2 rounded-full bg-white hover:border-secondary  hover:bg-gray-100 hover:text-white transition-all shadow-md border border-gray-200"
               aria-label="Previous publication"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -146,12 +80,100 @@ export default function Publications({ preview = false }: PublicationsProps) {
 
             <button
               onClick={goToNext}
-              className="p-2 rounded-full bg-secondary text-white hover:bg-accent transition-all"
+              className="p-2 rounded-full bg-secondary text-white hover:bg-secondary/90 transition-all"
               aria-label="Next publication"
             >
               <ChevronRight className="h-5 w-5" />
             </button>
           </div>
+
+          {/* Carousel Slides - Show 4 cards with last one highlighted */}
+          <div className="relative overflow-hidden px-0">
+            <div className="flex items-end gap-4 transition-transform duration-700 ease-in-out">
+              {[...Array(4)].map((_, position) => {
+                const index = (currentIndex + position) % visiblePublications.length;
+                const pub = visiblePublications[index];
+                const isMain = position === 3; // 4th card is the main one
+
+                return (
+                  <div
+                    key={`${pub.id}-${position}`}
+                    className={`transition-all duration-700 ${
+                      isMain 
+                        ? 'flex-shrink-0 w-[40%] opacity-100 scale-100' 
+                        : 'flex-shrink-0 w-[18%] opacity-60 scale-90'
+                    }`}
+                  >
+                    <div className={`rounded-2xl bg-white border p-6 transition-all duration-700 relative overflow-hidden ${
+                      isMain 
+                        ? 'border-secondary shadow-2xl h-[400px]' 
+                        : 'border-gray-200 shadow-md h-[320px]'
+                    }`}>
+                      <p className={`font-semibold uppercase tracking-[0.18em] text-secondary mb-2 ${
+                        isMain ? 'text-xs' : 'text-[10px]'
+                      }`}>
+                        {pub.type}
+                      </p>
+                      <h3 className={`font-display font-bold text-dark mb-3 ${
+                        isMain ? 'text-xl' : 'text-sm line-clamp-2'
+                      }`}>
+                        {pub.title}
+                      </h3>
+                      
+                      {/* Content section with blur for non-main cards */}
+                      <div className={isMain ? '' : 'relative'}>
+                        <p className={`text-gray-700 leading-relaxed mb-3 ${
+                          isMain ? 'text-base' : 'text-xs'
+                        }`}>
+                          {pub.summary}
+                        </p>
+                        <div className="space-y-2">
+                          <p className={`text-gray-600 italic ${
+                            isMain ? 'text-sm' : 'text-[11px]'
+                          }`}>
+                            {pub.venue}
+                          </p>
+                          {pub.authors && isMain && (
+                            <p className="text-sm text-gray-600">
+                              <span className="font-semibold">Authors:</span> {pub.authors}
+                            </p>
+                          )}
+                        </div>
+                        
+                        {/* Blur overlay for non-main cards */}
+                        {!isMain && (
+                          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white pointer-events-none"></div>
+                        )}
+                      </div>
+                      
+                      {pub.link && isMain ? (
+                        <a
+                          href={pub.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block mt-4 px-4 py-2 text-sm font-medium text-primary hover:text-white border border-primary hover:bg-primary rounded-lg transition-all"
+                        >
+                          {pub.linkLabel || 'View Publication'}
+                        </a>
+                      ) : null}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* View All Publications Button */}
+          {preview && publications.length > 3 && (
+            <div className="text-center mt-12">
+              <Link
+                href="/publications"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all"
+              >
+                View All Publications
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </section>
