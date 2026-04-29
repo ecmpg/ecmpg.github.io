@@ -68,8 +68,8 @@ export default function Header() {
           <div className="flex items-center gap-3 float-up">
             <SiteLogo size={44} />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">University of Huddersfield</p>
               <p className="text-lg md:text-xl font-display font-semibold text-dark">ECMPG</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">University of Huddersfield</p>
             </div>
           </div>
 
