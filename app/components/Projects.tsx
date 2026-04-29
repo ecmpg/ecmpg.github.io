@@ -53,10 +53,10 @@ export default function Projects({ preview = false }: ProjectsProps) {
             </button>
             <button
               onClick={handleNext}
-              className="w-10 h-10 rounded-full bg-secondary hover:bg-secondary/90 flex items-center justify-center transition-all shadow-md"
+              className="w-10 h-10 rounded-full bg-white hover:bg-gray-100 flex items-center justify-center transition-all shadow-md border border-gray-200"
               aria-label="Next projects"
             >
-              <ChevronRight className="w-5 h-5 text-white" />
+              <ChevronRight className="w-5 h-5 text-gray-700" />
             </button>
           </div>
         </div>

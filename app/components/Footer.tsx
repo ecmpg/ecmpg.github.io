@@ -1,20 +1,21 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Copyright, Mail, Phone, MapPin } from 'lucide-react';
 import SiteLogo from './SiteLogo';
+import TeamImage from './TeamImage';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isHomePage = pathname === '/';
+  
   return (
-    <footer id="contact" className="bg-primary text-gray-100 py-14 relative mt-32 pt-40">
+    <footer id="contact" className={`bg-primary text-gray-100 py-14 relative ${isHomePage ? 'mt-32 pt-40' : 'mt-16'}`}>
       <div className="container-custom">
-        <div className="relative pb-5">
-          <div className="absolute -top-64 left-0 right-0 w-full max-w-5xl h-96 bg-white rounded-2xl shadow-2xl overflow-hidden z-10">              
-            <img src="/images/team.jpeg" alt="ECMPG Team" className="w-full h-full object-cover object-top" />
-          </div>
-        </div>
+        <TeamImage />
         
-        <div className="grid md:grid-cols-3 gap-8 mb-8 pt-40 relative z-20">
+        <div className={`grid md:grid-cols-3 gap-8 mb-8 relative z-20 ${isHomePage ? 'pt-40' : ''}`}>
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <SiteLogo size={34} className="rounded-lg" />

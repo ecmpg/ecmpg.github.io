@@ -57,7 +57,7 @@ export default function Publications({ preview = false }: PublicationsProps) {
           <div className="flex items-center justify-start gap-8 mt-8 px-0">
             <button
               onClick={goToPrevious}
-              className="p-2 rounded-full bg-white hover:border-secondary  hover:bg-gray-100 hover:text-white transition-all shadow-md border border-gray-200"
+              className="p-2 rounded-full bg-white hover:border-secondary hover:bg-gray-100 hover:text-white transition-all shadow-md border border-gray-200"
               aria-label="Previous publication"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -80,7 +80,7 @@ export default function Publications({ preview = false }: PublicationsProps) {
 
             <button
               onClick={goToNext}
-              className="p-2 rounded-full bg-secondary text-white hover:bg-secondary/90 transition-all"
+              className="p-2 rounded-full bg-white hover:bg-gray-100 flex items-center justify-center transition-all shadow-md border border-gray-200"
               aria-label="Next publication"
             >
               <ChevronRight className="h-5 w-5" />
