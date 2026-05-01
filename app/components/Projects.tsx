@@ -103,7 +103,7 @@ export default function Projects({ preview = false }: ProjectsProps) {
         {preview && projects.length > itemsPerPage && (
           <div className="text-center">
             <Link
-              href="/projects"
+              href="#"
               className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all"
             >
               View All Projects

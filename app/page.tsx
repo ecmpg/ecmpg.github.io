@@ -5,6 +5,7 @@ import Projects from './components/Projects';
 import Publications from './components/Publications';
 import Team from './components/Team';
 import Partners from './components/Partners';
+import TeamImage from './components/TeamImage';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Team preview />
         <Publications preview />
         <Partners />
+        <TeamImage />
       </main>
     </>
   );

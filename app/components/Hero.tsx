@@ -31,13 +31,13 @@ export default function Hero() {
               </p>
 
               <div className="mt-10 flex flex-wrap gap-4">
-                <Link href="/projects" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-secondary text-white font-semibold hover:bg-secondary/90 transition-all shadow-lg">
+                <Link href="#projects" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-secondary text-white font-semibold hover:bg-secondary/90 transition-all shadow-lg">
                   Explore Projects
                 </Link>
-                <Link href="/about" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">
+                <Link href="#about" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-white text-primary font-semibold hover:bg-gray-100 transition-all">
                   Learn More
                 </Link>
-                <Link href="/team" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-transparent text-white border border-white/50 font-semibold hover:bg-white/10 transition-all">
+                <Link href="#team" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-transparent text-white border border-white/50 font-semibold hover:bg-white/10 transition-all">
                   Meet The Team
                 </Link>
               </div>

@@ -8,11 +8,11 @@ import SiteLogo from './SiteLogo';
 
 const menuItems = [
   { name: 'Home', href: '/' },
-  { name: 'About', href: '/about' },
-  { name: 'Team', href: '/team' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Publications', href: '/publications' },
-  { name: 'Partners', href: '/partners' },
+  { name: 'About', href: '#about' },
+  { name: 'Team', href: '#team' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Publications', href: '#publications' },
+  { name: 'Partners', href: '#partners' },
   { name: 'Contact Us', href: '#contact' },
 ];
 
@@ -65,7 +65,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md shadow-sm">
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between gap-4">
-          <div className="flex items-center gap-3 float-up">
+          <div className="flex items-center gap-3">
             <SiteLogo size={44} />
             <div>
               <p className="text-lg md:text-xl font-display font-semibold text-dark">ECMPG</p>

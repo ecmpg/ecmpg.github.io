@@ -3,8 +3,72 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+
+type CountUpProps = {
+  end: number;
+  start: boolean;
+  duration?: number;
+};
+
+function CountUp({ end, start, duration = 1400 }: CountUpProps) {
+  const [value, setValue] = useState(0);
+
+  useEffect(() => {
+    if (!start) return;
+
+    let frameId = 0;
+    const startedAt = performance.now();
+
+    const animate = (now: number) => {
+      const elapsed = now - startedAt;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      setValue(Math.round(end * eased));
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(frameId);
+  }, [start, end, duration]);
+
+  return <>{value}</>;
+}
 
 export default function About() {
+  const statsRef = useRef<HTMLDivElement>(null);
+  const [startCount, setStartCount] = useState(false);
+
+  useEffect(() => {
+    const element = statsRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartCount(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, []);
+
+  const stats = [
+    { value: 90, label: 'Research Outcomes' },
+    { value: 50, label: 'Research Publications' },
+    { value: 15, label: 'Industry Partners' },
+  ];
+
   return (
     <section id="about" className="py-14 md:py-16 bg-white">
       <div className="container-custom">
@@ -60,26 +124,32 @@ export default function About() {
               Our group specializes in machine tool technology, industrial robotics, and precision engineering, working closely with industry partners to develop practical solutions that address real-world manufacturing challenges.
             </p>
             <Link 
-              href="/about" 
+              href="#" 
               className="inline-flex items-center gap-2 text-secondary font-semibold hover:text-secondary/80 transition-colors"
             >
               Read More <ArrowRight className="w-5 h-5" />
             </Link>
 
             {/* Statistics Section */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
-                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">90+</h3>
-                <p className="text-gray-700 text-sm">Research Outcomes</p>
-              </div>
-              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
-                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">50+</h3>
-                <p className="text-gray-700 text-sm">Research Publications</p>
-              </div>
-              <div className="rounded-2xl p-6 text-center bg-white relative overflow-hidden" style={{ border: '2px solid transparent', backgroundImage: 'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)', backgroundOrigin: 'border-box', backgroundClip: 'padding-box, border-box' }}>
-                <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">15+</h3>
-                <p className="text-gray-700 text-sm">Industry Partners</p>
-              </div>
+            <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-2xl p-6 text-center bg-white relative overflow-hidden"
+                  style={{
+                    border: '2px solid transparent',
+                    backgroundImage:
+                      'linear-gradient(white, white), linear-gradient(60deg, #289dfd -7.93%, #fdc243 114.63%)',
+                    backgroundOrigin: 'border-box',
+                    backgroundClip: 'padding-box, border-box',
+                  }}
+                >
+                  <h3 className="text-primary text-5xl font-bold text-gray-900 mb-2">
+                    <CountUp end={stat.value} start={startCount} />+
+                  </h3>
+                  <p className="text-gray-700 text-sm">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

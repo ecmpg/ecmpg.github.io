@@ -104,10 +104,10 @@ export default function Publications({ preview = false }: PublicationsProps) {
                         : 'flex-shrink-0 w-[18%] opacity-60 scale-90'
                     }`}
                   >
-                    <div className={`rounded-2xl bg-white border p-6 transition-all duration-700 relative overflow-hidden ${
+                    <div className={`rounded-2xl border p-6 transition-all duration-700 relative overflow-hidden bg-gradient-to-br ${
                       isMain 
-                        ? 'border-secondary shadow-2xl h-[400px]' 
-                        : 'border-gray-200 shadow-md h-[320px]'
+                        ? 'from-primary/[0.08] via-white to-secondary/[0.14] border-secondary/70  h-[450px]' 
+                        : 'from-primary/[0.04] via-white to-secondary/[0.08] border-gray-200 shadow-md h-[360px]'
                     }`}>
                       <p className={`font-semibold uppercase tracking-[0.18em] text-secondary mb-2 ${
                         isMain ? 'text-xs' : 'text-[10px]'
@@ -167,7 +167,7 @@ export default function Publications({ preview = false }: PublicationsProps) {
           {preview && publications.length > 3 && (
             <div className="text-center mt-12">
               <Link
-                href="/publications"
+                href="#"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all"
               >
                 View All Publications

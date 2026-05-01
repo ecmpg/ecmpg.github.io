@@ -66,7 +66,7 @@ export default function Team({ preview = false, eagerImages = false }: TeamProps
 
         {preview ? (
           <div className="mt-8 text-center">
-            <Link href="/team" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all">
+            <Link href="#" className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition-all">
               View All Team Members
             </Link>
           </div>

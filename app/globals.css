@@ -96,6 +96,13 @@
     backdrop-filter: blur(6px);
   }
 
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
   .float-up {
     animation: float-up 0.85s ease forwards;
   }
@@ -149,5 +156,11 @@
   .btn-primary,
   .btn-secondary {
     transition: none !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .parallax-bg {
+    background-attachment: scroll;
   }
 }

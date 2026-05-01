@@ -1,21 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Copyright, Mail, Phone, MapPin } from 'lucide-react';
 import SiteLogo from './SiteLogo';
-import TeamImage from './TeamImage';
 
 export default function Footer() {
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
-  
   return (
-    <footer id="contact" className={`bg-primary text-gray-100 py-14 relative ${isHomePage ? 'mt-32 pt-40' : 'mt-16'}`}>
+    <footer id="contact" className="bg-primary text-gray-100 py-14 relative">
       <div className="container-custom">
-        <TeamImage />
-        
-        <div className={`grid md:grid-cols-3 gap-8 mb-8 relative z-20 ${isHomePage ? 'pt-40' : ''}`}>
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <SiteLogo size={34} className="rounded-lg" />
@@ -30,11 +23,11 @@ export default function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-gray-300 text-sm">
               <li><Link href="/" className="hover:text-secondary transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-secondary transition-colors">About</Link></li>
-              <li><Link href="/team" className="hover:text-secondary transition-colors">Team</Link></li>
-              <li><Link href="/projects" className="hover:text-secondary transition-colors">Projects</Link></li>
-              <li><Link href="/publications" className="hover:text-secondary transition-colors">Publications</Link></li>
-              <li><Link href="/partners" className="hover:text-secondary transition-colors">Partners</Link></li>
+              <li><Link href="#" className="hover:text-secondary transition-colors">About</Link></li>
+              <li><Link href="#" className="hover:text-secondary transition-colors">Team</Link></li>
+              <li><Link href="#" className="hover:text-secondary transition-colors">Projects</Link></li>
+              <li><Link href="#" className="hover:text-secondary transition-colors">Publications</Link></li>
+              <li><Link href="#" className="hover:text-secondary transition-colors">Partners</Link></li>
             </ul>
           </div>
 
