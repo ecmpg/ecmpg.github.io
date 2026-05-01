@@ -47,7 +47,7 @@ export default function Hero() {
       </div>
 
       {/* Research Focus Section - Overlapping */}
-      <div className="relative -mt-28 z-20">
+      <div className="relative -mt-10 md:-mt-28 z-20">
         <div className="container-custom">
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
             <div className="flex flex-col md:flex-row md:items-start gap-8 mb-10">

@@ -54,7 +54,7 @@ export default function Publications({ preview = false }: PublicationsProps) {
         {/* Carousel Container */}
         <div className="mt-10 relative">
            {/* Navigation Controls and Dot Indicators at Bottom */}
-          <div className="flex items-center justify-start gap-8 mt-8 px-0">
+          <div className="flex items-center justify-center md:justify-start gap-8 mt-8 px-0 mb-5 md:mb-0">
             <button
               onClick={goToPrevious}
               className="p-2 rounded-full bg-white hover:border-secondary hover:bg-gray-100 hover:text-white transition-all shadow-md border border-gray-200"
@@ -100,8 +100,8 @@ export default function Publications({ preview = false }: PublicationsProps) {
                     key={`${pub.id}-${position}`}
                     className={`transition-all duration-700 ${
                       isMain 
-                        ? 'flex-shrink-0 w-[40%] opacity-100 scale-100' 
-                        : 'flex-shrink-0 w-[18%] opacity-60 scale-90'
+                        ? 'flex-shrink-0 w-full md:w-[40%] opacity-100 scale-100' 
+                        : 'hidden md:block flex-shrink-0 md:w-[18%] opacity-60 scale-90'
                     }`}
                   >
                     <div className={`rounded-2xl border p-6 transition-all duration-700 relative overflow-hidden bg-gradient-to-br ${
